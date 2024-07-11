@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /feigntest
+    encoding:
+      enabled: true
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+  tomcat:
+    threads:
+      max: 300
+      min-spare: 20
+    keep-alive-timeout: 60000
+    max-keep-alive-requests: -1
+spring:
+  profiles:
+    active: local
+  application:
+    name: feigntest
+  cloud:
+    openfeign:
+      httpclient:
+        max-connections: 1500
+        max-connections-per-route: 100
+        hc5:
+          enabled: true
+          pool-concurrency-policy: strict
+          pool-reuse-policy: fifo
+    config:
+      enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+url:
+  targetUrl: localhost:8081/feigntest
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+url:
+  targetUrl: http://yourserveraddress:8080/feigntest
