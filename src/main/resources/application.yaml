@@ -12,8 +12,8 @@ server:
     threads:
       max: 300
       min-spare: 20
-    keep-alive-timeout: 60000
-    max-keep-alive-requests: -1
+#    keep-alive-timeout: 60000
+#    max-keep-alive-requests: -1
 spring:
   profiles:
     active: local
