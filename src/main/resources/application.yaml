@@ -44,4 +44,4 @@ spring:
     activate:
       on-profile: dev
 url:
-  targetUrl: http://yourserveraddress:8080/feigntest
+  targetUrl: http://feigntest-server-service.feigntest:8080/feigntest
